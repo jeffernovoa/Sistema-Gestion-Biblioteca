@@ -16,6 +16,6 @@ Este es un proyecto de gestión de biblioteca implementado en Python, que simula
 - Estructura modular: El código está organizado en múltiples archivos para mejorar la legibilidad y facilidad de mantenimiento.
 
 ***Tecnologías Utilizadas:***
-· Python: Lenguaje de programación principal.
-· Gradio: Para la interfaz de usuario.
-· pickle: Para guardar y cargar el estado de la biblioteca.
+- Python: Lenguaje de programación principal.
+- Gradio: Para la interfaz de usuario.
+- pickle: Para guardar y cargar el estado de la biblioteca.
