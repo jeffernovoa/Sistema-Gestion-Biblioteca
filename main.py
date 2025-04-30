@@ -1,27 +1,33 @@
-from book import Book
 from book_genre import BookGenre
+from employee import Employee
+from user import User
 
 def main():
-    # Crear algunos libros
-    libro1 = Book("Cien años de soledad", "Gabriel García Márquez", BookGenre.FICTION)
-    libro2 = Book("Una breve historia del tiempo", "Stephen Hawking", BookGenre.SCIENCE)
+    # Listas para almacenar libros y usuarios
+    books = []
+    users = []
 
-    # Mostrar estado inicial
-    print(f"¿{libro1.get_title()} disponible? {libro1.is_available()}")
+    # Crear un empleado
+    empleado = Employee("Ana", 1)
 
-    # Prestar libro
-    if libro1.borrow():
-        print(f"{libro1.get_title()} ha sido prestado.")
-    else:
-        print(f"{libro1.get_title()} no está disponible para préstamo.")
+    # Registrar un usuario
+    usuario = empleado.register_user(users, "Carlos", 100)
 
-    # Intentar prestar nuevamente
-    if not libro1.borrow():
-        print(f"{libro1.get_title()} ya está prestado.")
+    # Agregar libros
+    libro1 = empleado.add_book(books, "1984", "George Orwell", BookGenre.FICTION)
+    libro2 = empleado.add_book(books, "El origen de las especies", "Charles Darwin", BookGenre.SCIENCE)
 
-    # Devolver libro
-    libro1.return_book()
-    print(f"{libro1.get_title()} ha sido devuelto. Disponible? {libro1.is_available()}")
+    # Usuario toma prestado un libro
+    usuario.borrow_book(libro1)
+
+    # Usuario intenta tomar prestado el mismo libro nuevamente
+    usuario.borrow_book(libro1)
+
+    # Usuario devuelve el libro
+    usuario.return_book(libro1)
+
+    # Usuario intenta devolver un libro que no tiene
+    usuario.return_book(libro2)
 
 if __name__ == "__main__":
     main()
